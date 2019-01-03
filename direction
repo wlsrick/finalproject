@@ -1,0 +1,156 @@
+// 按w的輸出結果
+int up()
+{
+	if (map[x][y] == 3)		//找到自己的位置
+	{
+		if (map[x - 1][y] == 0)		//下一格子空的
+		{
+			map[x - 1][y] = 3;
+			map[x][y] = 0;
+		}
+		if (map[x - 1][y] == 2 && map[x - 2][y] == 4)	//下一格子箱子,下下個星星方
+		{
+			map[x][y] = 0;
+			map[x - 1][y] = 3;
+			map[x - 2][y] = 5;
+		}
+		if (map[x - 1][y] == 2 && (map[x - 2][y] == 1||map[x-2][y]==2))
+			i -= 1;
+		if (map[x - 1][y] == 2 && map[x - 2][y] == 0)	//下一個格子箱子，下下個格子空的
+		{
+			map[x][y] = 0;
+			map[x - 1][y] = 3;
+			map[x - 2][y] = 2;
+		}
+		if (map[x-1][y]==5 && map[x-2][y]==4)		//下個格子是不是星星並且下下個格子也是星星
+		{
+			map[x][y] = 3;
+			map[x - 1][y] = 4;
+			map[x - 2][y] = 5;
+			i = i + 1;
+		}
+		if (map[x - 1][y] == 1|| map[x - 1][y] == 4|| map[x - 1][y] == 5)//下一格是牆壁的話不會增加移動步數
+		{
+			i -= 1;
+			q = 0; 
+		}
+	}
+	return 0;
+}
+//按s的輸出結果
+int down()
+{
+	if (map[x][y] == 3)
+	{
+		if (map[x + 1][y] == 0)
+		{
+			map[x + 1][y] = 3;
+			map[x][y] = 0;
+		}
+		if (map[x + 1][y] == 2 && map[x + 2][y] == 4)
+		{
+			map[x][y] = 0;
+			map[x + 1][y] = 3;
+			map[x + 2][y] = 5;
+		}
+		if (map[x + 1][y] == 2 &&( map[x + 2][y] == 1||map[x+2][y]==2))
+			i -= 1;
+		if (map[x + 1][y] == 2 && map[x + 2][y] == 0)
+		{
+			map[x + 1][y] = 3;
+			map[x][y] = 0;
+			map[x + 2][y] = 2;
+		}
+		if (map[x + 1][y] == 5 && map[x + 2][y] == 4)
+		{
+			map[x][y] = 3;
+			map[x + 1][y] = 4;
+			map[x + 2][y] = 5;
+			i = i + 1;
+		}
+		if (map[x + 1][y] == 1|| map[x + 1][y] == 4|| map[x + 1][y] == 5)
+		{
+			i -= 1;
+			q = 0;
+		}
+	}
+	return 0;
+}
+//按a的輸出結果
+int left()
+{
+	if (map[x][y] == 3)
+	{
+		if (map[x][y - 1] == 0)
+		{
+			map[x][y - 1] = 3;
+			map[x][y] = 0;
+		}
+		if (map[x][y - 1] == 2 && map[x][y - 2] == 4)
+		{
+			map[x][y] = 0;
+			map[x][y - 1] = 3;
+			map[x][y - 2] = 5;
+		}
+		if (map[x][y-1] == 2 && (map[x][y-2] == 1||map[x][y-2]))
+			i -= 1;
+		if (map[x][y - 2] == 0 && map[x][y - 1] == 2)
+		{
+			map[x][y] = 0;
+			map[x][y - 1] = 3;
+			map[x][y - 2] = 2;
+		}
+		if (map[x][y-1] == 5 && map[x][y-2] == 4)
+		{
+			map[x][y] = 3;
+			map[x][y-1] = 4;
+			map[x ][y-2] = 5;
+			i = i + 1;
+		}
+		if (map[x][y - 1] == 1|| map[x][y - 1] == 4|| map[x][y - 1] == 5)
+		{
+			i -= 1;
+			q = 0;
+		}
+	}
+	return 0;
+}
+//按d的輸出結果
+int right()
+{
+	if (map[x][y] == 3)
+	{
+		if (map[x][y + 1] == 0)
+		{
+			map[x][y + 1] = 3;
+			map[x][y] = 0;
+		}
+		if (map[x][y + 1] == 2 && map[x][y + 2] == 4)
+		{
+			map[x][y] = 0;
+			map[x][y + 1] = 3;
+			map[x][y + 2] = 5;
+		}
+		if (map[x][y+1] == 2 && (map[x][y+2] == 1||map[x][y+2]==2))
+			i -= 1;
+		if (map[x][y + 1] == 2 && map[x][y + 2] == 0)
+		{
+			map[x][y] = 0;
+			map[x][y+1] = 3;
+			map[x][y+2] = 2;
+		}
+		if (map[x][y +1] == 5 && map[x][y +2] == 4)
+		{
+			map[x][y] = 3;
+			map[x][y+1] = 4;
+			map[x][y+2] = 5;
+			i = i + 1;
+		}
+		if (map[x][y + 1] == 1|| map[x][y + 1] == 4|| map[x][y + 1] == 5)
+		{
+			i -= 1;
+			q = 0;
+		}
+	}
+	return 0;
+}
